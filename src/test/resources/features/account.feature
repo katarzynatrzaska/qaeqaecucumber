@@ -29,4 +29,3 @@ Scenario: Customer can change other settings
   Then Customer sees Settings page
   When Customer changes some setting
   Then Customer sees setting's status changed
-  
