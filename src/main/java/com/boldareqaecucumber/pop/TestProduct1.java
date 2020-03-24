@@ -45,9 +45,7 @@ public class TestProduct1 extends BasePage {
 
     public void clickOnAddCartButton() {
         element.click(addToCartButton);
-        log().info("Clicked on Add to Cart Button");
     }
-
 
     public boolean isSuccessMessageDisplayed() {
         return element.isDisplayed(successMessage);
