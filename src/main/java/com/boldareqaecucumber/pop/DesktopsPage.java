@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import com.boldareqaecucumber.support.WaitHelper;
 import com.boldareqaecucumber.support.WebElementHelper;
 import org.openqa.selenium.support.PageFactory;
-import com.boldareqaecucumber.pop.TestProduct1;
+
 
 public class DesktopsPage extends BasePage {
 
@@ -20,7 +20,10 @@ public class DesktopsPage extends BasePage {
     @FindBy(xpath = "//*[@id='content']/h2")
     private WebElement desktopsHeader;
 
-    public  DesktopsPage (WebDriver driver) {
+    @FindBy(xpath = "//h2[contains(text(),\"Desktops\")]")
+    private WebElement desktopsHeaderName;
+
+    public DesktopsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         waitHelper = new WaitHelper(driver);
@@ -33,14 +36,12 @@ public class DesktopsPage extends BasePage {
         return this;
     }
 
-   // public DesktopsPage assertThatDesktopsHeaderIsDisplayed(String desktops) {
-     //   log().info("Checking if Desktops Header {} is displayed", desktops);
-        //WaitForElement.waitUntilElementIsVisible(desktopsHeader);
-        //generic.assertions.AssertWebElement.assertThat(desktopsHeader).isDisplayed().hasText(desktops);
-       // return this;
 
-
+    public boolean isHeaderDisplayed() {
+        return element.isDisplayed(desktopsHeaderName);
     }
+
+}
 
 
 
