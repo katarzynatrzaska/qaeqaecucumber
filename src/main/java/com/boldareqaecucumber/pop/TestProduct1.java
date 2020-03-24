@@ -13,10 +13,10 @@ public class TestProduct1 extends BasePage {
 
     WebDriver driver;
 
-    @FindBy(xpath ="html/body/div[2]/div[1]")
+    @FindBy(xpath = "html/body/div[2]/div[1]")
     private WebElement successMessage;
 
-    @FindBy(xpath ="//*[contains(text(),'2 item(s) - $20,000.00')]")
+    @FindBy(xpath = "//*[contains(text(),'2 item(s) - $20,000.00')]")
     private WebElement successMessageDisplayed;
 
     @FindBy(id = "button-cart")
@@ -32,16 +32,16 @@ public class TestProduct1 extends BasePage {
     public WebElement checkOutButton;
 
 
-    public  TestProduct1 (WebDriver driver) {
+    public TestProduct1(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         waitHelper = new WaitHelper(driver);
         element = new WebElementHelper(waitHelper, driver);
     }
 
-  public boolean isItemAndPriceDisplayed(){
+    public boolean isItemAndPriceDisplayed() {
         return element.isDisplayed(successMessageDisplayed);
-  }
+    }
 
     public void clickOnAddCartButton() {
         element.click(addToCartButton);
@@ -49,7 +49,7 @@ public class TestProduct1 extends BasePage {
     }
 
 
-    public boolean isSuccessMessageDisplayed () {
+    public boolean isSuccessMessageDisplayed() {
         return element.isDisplayed(successMessage);
     }
 }
