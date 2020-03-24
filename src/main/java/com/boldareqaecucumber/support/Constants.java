@@ -22,5 +22,7 @@ public class Constants {
 	public static long getImplicitewait() {
 		return impliciteWait;
 	}
+
+	public final static String PRODUCT_URL = "https://rekrutacjaqa2.xsolve.software/index.php?route=product/product&path=20&product_id=42";
 	
 }

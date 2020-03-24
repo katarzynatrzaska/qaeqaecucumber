@@ -36,7 +36,7 @@ public class TestBase {
 			chromeOptions.addArguments("--disable-dev-shm-usage");
 			driver = new RemoteWebDriver(new URL(host), chromeOptions);
 		}
-		driver.get("https://my.dev.sonnen.de/");
+		driver.get("https://rekrutacjaqa2.xsolve.software/");
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 
