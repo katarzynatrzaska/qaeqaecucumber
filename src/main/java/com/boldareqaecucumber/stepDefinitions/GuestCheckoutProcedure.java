@@ -29,113 +29,120 @@ public class GuestCheckoutProcedure extends TestBase {
     public void checkIfBillingDetailsHasCorrectText() {
         checkout.assertThatStep2PanelHasBillingDetailsText();
     }
-}
 
-
-
-
-    /* @When("^User press Continue Button under Customer Options$")
-   public void user_press_Continue_Button_under_Customer_Options() {
-
+    @When("^User press Continue Button under Customer Options$")
+    public void userPressContinueButtonnderCustomerOptions() {
+        checkout.pressContinueButtonUnderCostumerOptions();
     }
 
     @When("^types \"([^\"]*)\" in the the first name Field$")
-    public void types_in_the_the_first_name_Field(String arg1) {
-
+    public void fillInFirstName(String firstName) {
+        checkout.typeIntoFirstNameField(firstName);
     }
 
     @When("^types \"([^\"]*)\" in the Last name Field$")
-    public void types_in_the_Last_name_Field(String arg1) throws Throwable {
-
+    public void fillInLastName(String lastName) {
+        checkout.typeIntoLastNameField(lastName);
     }
 
     @When("^types \"([^\"]*)\" in Email Field$")
-    public void types_in_Email_Field(String arg1) throws Throwable {
+    public void fillInEmail(String email) {
+        checkout.typeIntoEmailField(email);
+    }
+
+    @When("^types \"([^\"]*)\" in Mobile No\\. Field$")
+    public void fillInTelephoneNo(String telephoneNo) {
+        checkout.typeIntoTelephoneField(telephoneNo);
+    }
+
+    @When("^types \"([^\"]*)\" in Company Field$")
+    public void fillInCompany(String companyName) {
+        checkout.typeIntoCompanyField(companyName);
+    }
+
+    @When("^types \"([^\"]*)\" in Address first line Field$")
+    public void fillInAddress1(String address1) {
+        checkout.typeIntoAddress1Field(address1);
+    }
 
 
-        @When("^types \"([^\"]*)\" in Mobile No\\. Field$")
-        public void types_in_Mobile_No_Field (String arg1) throws Throwable {
+    @When("^types \"([^\"]*)\" in Address second line Field$")
+    public void fillInAddress2(String address2) {
+        checkout.typeIntoAddress2Field(address2);
+    }
 
-        }
+    @When("^types \"([^\"]*)\" in City Field$")
+    public void fillInCityField(String city) {
+        checkout.typeIntoCityField(city);
+    }
 
-        @When("^types \"([^\"]*)\" in Company Field$")
-        public void types_in_Company_Field (String arg1) throws Throwable {
+    @When("^types \"([^\"]*)\" in ZIP Code Field$")
+    public void fillInZIPCode(String ZIPCode) {
+        checkout.typeIntoPostCodeField(ZIPCode);
+    }
 
-        }
+    @When("^selects \"([^\"]*)\" from Country Field$")
+    public void selectCountry(String country) {
+        checkout.selectValueFromCountryDropdown(country);
 
-        @When("^types \"([^\"]*)\" in Address(\\d+) Field$")
-        public void types_in_Address_Field (String arg1,int arg2) throws Throwable {
+ /*   }
 
+    @When("^selects \"([^\"]*)\" from Region Field$")
+    public void selects_from_Region_Field(String arg1) throws Throwable {
 
-            @When("^types \"([^\"]*)\" in City Field$")
-            public void types_in_City_Field (String arg1) throws Throwable {
+    }
 
-            }
+    @When("^User clicks on Continue Button$")
+    public void user_clicks_on_Continue_Button() throws Throwable {
 
-            @When("^types \"([^\"]*)\" in ZIP Code Field$")
-            public void types_in_ZIP_Code_Field (String arg1) throws Throwable {
+    }
 
-            }
+    @When("^User clicks on Delivery Details$")
+    public void user_clicks_on_Delivery_Details() throws Throwable {
 
-            @When("^selects \"([^\"]*)\" from Country Field$")
-            public void selects_from_Country_Field (String arg1) throws Throwable {
+    }
 
-            }
+    @Then("^Delivery Method statement has correct Text$")
+    public void delivery_Method_statement_has_correct_Text() throws Throwable {
 
-            @When("^selects \"([^\"]*)\" from Region Field$")
-            public void selects_from_Region_Field (String arg1) throws Throwable {
+    }
 
-            }
+    @When("^User clicks on Continue Button after Delivery Details$")
+    public void user_clicks_on_Continue_Button_after_Delivery_Details() throws Throwable {
 
-            @When("^User clicks on Continue Button$")
-            public void user_clicks_on_Continue_Button () throws Throwable {
+    }
 
-            }
+    @When("^types \"([^\"]*)\"$")
+    public void types(String arg1) throws Throwable {
 
-            @When("^User clicks on Delivery Details$")
-            public void user_clicks_on_Delivery_Details () throws Throwable {
+    }
 
-            }
+    @When("^clicks on Continue Button after Delivery Method$")
+    public void clicks_on_Continue_Button_after_Delivery_Method() throws Throwable {
 
-            @Then("^Delivery Method statement has correct Text$")
-            public void delivery_Method_statement_has_correct_Text () throws Throwable {
+    }
 
-            }
+    @Then("^Text in the Payment area is \"([^\"]*)\"$")
+    public void text_in_the_Payment_area_is(String arg1) throws Throwable {
 
-            @When("^User clicks on Continue Button after Delivery Details$")
-            public void user_clicks_on_Continue_Button_after_Delivery_Details () throws Throwable {
+    }
 
-            }
+    @When("^user user agrees to Terms & Conditions$")
+    public void user_user_agrees_to_Terms_Conditions() throws Throwable {
 
-            @When("^types \"([^\"]*)\"$")
-            public void types (String arg1) throws Throwable {
+    }
 
-            }
+    @When("^clicks on Continue Button after Payment Method$")
+    public void clicks_on_Continue_Button_after_Payment_Method() throws Throwable {
 
-            @When("^clicks on Continue Button after Delivery Method$")
-            public void clicks_on_Continue_Button_after_Delivery_Method () throws Throwable {
+    }
 
-            }
+    @Then("^user sees correct order summary$")
+    public void user_sees_correct_order_summary() throws Throwable {
 
-            @Then("^Text in the Payment area is \"([^\"]*)\"$")
-            public void text_in_the_Payment_area_is (String arg1) throws Throwable {
+    }
 
-            }
-
-            @When("^user user agrees to Terms & Conditions$")
-            public void user_user_agrees_to_Terms_Conditions () throws Throwable {
-
-            }
-
-            @When("^clicks on Continue Button after Payment Method$")
-            public void clicks_on_Continue_Button_after_Payment_Method () throws Throwable {
-
-            }
-
-            @Then("^user sees correct order summary$")
-            public void user_sees_correct_order_summary () throws Throwable {
-
-            }
-
-        }
+}
         */
+    }
+}

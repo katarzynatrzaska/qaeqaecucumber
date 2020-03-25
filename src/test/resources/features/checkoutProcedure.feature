@@ -10,8 +10,8 @@ Feature: User can checkout
     And types "Test@testxyzs.com" in Email Field
     And types "700900900" in Mobile No. Field
     And types "Test Company" in Company Field
-    And types "First line Address" in Address1 Field
-    And types "Second Line Address" in Address2 Field
+    And types "First line Address" in Address first line Field
+    And types "Second Line Address" in Address second line Field
     And types "Katowice" in City Field
     And types "90210" in ZIP Code Field
     And selects "Poland" from Country Field
