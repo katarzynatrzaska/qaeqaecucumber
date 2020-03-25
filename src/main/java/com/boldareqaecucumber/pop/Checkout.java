@@ -10,7 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import static org.testng.AssertJUnit.assertTrue;
 
 public class Checkout extends BasePage {
 
@@ -109,29 +108,34 @@ public class Checkout extends BasePage {
     @FindBy(id = "button-guest-shipping")
     private WebElement continueButtonAfterDeliveryDetails;
 
-    @FindBy(xpath = "//*[@id='collapse-payment-method']/div/p[3]/textarea")
+    @FindBy(xpath = "*[@id='collapse-payment-method']/div/p[3]/textarea")
     private WebElement deliveryPaymentCommentInput;
 
     @FindBy(id = "button-payment-method")
     private WebElement continueButtonAfterPaymentMethod;
 
-    @FindBy(xpath = "//*[@id='collapse-checkout-confirm']/div/div[1]/table")
+    @FindBy(xpath = "//*[@id=\"collapse-checkout-confirm\"]/div/div[1]/table")
     private WebElement summaryTable;
+
 
     public Checkout(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         waitHelper = new WaitHelper(driver);
         element = new WebElementHelper(waitHelper, driver);
-
     }
 
-    public Checkout assertThatSummaryHasCorrectDetails(String summaryDetails) {
-        element.click(summaryTable);
-        //AssertWebElement.assertThat().isDisplayed().hasText(summaryDetails);
-        return this;
+    public void assertThatSummaryHasCorrectDetails() {
+        waitHelper.waitForElement(summaryTable);
+        summaryTable.isDisplayed();
+        String expectedSummary = "Product Name Model Quantity Unit Price Total\n" +
+                "Test product 1 Product 1 2 $10,000.00 $20,000.00\n" +
+                "Sub-Total: $20,000.00\n" +
+                "Flat Shipping Rate: $5.00\n" +
+                "Total: $20,005.00";
+        String summary = summaryTable.getText();
+        Assert.assertEquals(summary, expectedSummary);
     }
-
 
     public void clickOnContinueButtonAfterDeliveryDetails() {
         element.click(continueButtonAfterDeliveryDetails);
@@ -141,9 +145,8 @@ public class Checkout extends BasePage {
         element.click(continueButtonAfterPaymentMethod);
     }
 
-    public Checkout typeIntoDeliveryMethodCommentInput(String preferredShippingMethod) {
+    public void typeIntoDeliveryMethodCommentInput(String preferredShippingMethod) {
         element.type(deliveryMethodCommentInput, preferredShippingMethod);
-        return this;
     }
 
     public void agreeToTermsAndConditions() {
@@ -151,21 +154,23 @@ public class Checkout extends BasePage {
     }
 
     public void clickOnContinueButtonAfterDeliveryMethod() {
-        element.click(termsAndConditions);
+        waitHelper.waitForElement(continueButtonAfterDeliveryMethod);
+        element.click(continueButtonAfterDeliveryMethod);
     }
 
-    public Checkout assertThatDeliveryMethodHasStatement(String preferredShippingMethod) {
-        // WaitForElement.waitUntilElementIsVisible(deliveryMethodStatement);
-        // generic.assertions.AssertWebElement.assertThat(deliveryMethodStatement).isDisplayed().hasText(preferredShippingMethod);
-        return this;
+    public void assertThatDeliveryMethodHasStatement() {
+        deliveryMethodStatement.isDisplayed();
+        String expectedStatement = "Please select the preferred shipping method to use on this order.";
+        String statement = deliveryMethodStatement.getText();
+        Assert.assertEquals(statement, expectedStatement);
     }
 
-    public Checkout assertThatPaymentTextAreaHasText(String paymentMethodComment) {
-        //WaitForElement.waitUntilElementIsVisible(deliveryPaymentCommentInput);
-        //generic.assertions.AssertWebElement.assertThat(deliveryPaymentCommentInput).isDisplayed().hasText(paymentMethodComment);
-        return this;
+    public void assertThatPaymentTextAreaHasText() {
+        deliveryPaymentCommentInput.isDisplayed();
+        String expectedText = " This is a test comment in the Order Comments";
+        String text = deliveryPaymentCommentInput.getText();
+        Assert.assertEquals(text, expectedText);
     }
-
 
     public void clickOnDeliveryDetails() {
         element.click(step3Panel);
@@ -174,9 +179,8 @@ public class Checkout extends BasePage {
     public void assertThatStep2PanelHasBillingDetailsText() {
         step2Panel.isDisplayed();
         String expectedStep2Panel = "Step 2: Billing Details";
-        String message =  step2Panel.getText();
+        String message = step2Panel.getText();
         Assert.assertEquals(message, expectedStep2Panel);
-
     }
 
 
@@ -219,26 +223,24 @@ public class Checkout extends BasePage {
     public void selectValueFromCountryDropdown(String country) {
         Select countryList = new Select(countryDropdown);
         countryList.selectByVisibleText(country);
-
     }
 
     public void selectGuestRadioButton() {
         element.click(guestCheckoutRadio);
     }
 
- public void selectValueFromRegionDropdown(String region) {
+    public void selectValueFromRegionDropdown(String region) {
         Select regionList = new Select(regionSelect);
         regionList.selectByVisibleText(region);
-  }
+    }
 
     public void clickContinueButtonInBillingInfo() {
         element.click(submitGuestButton);
-  }
+    }
 
     public void pressContinueButtonUnderCostumerOptions() {
         element.click(continueButton);
-   }
-
+    }
 
 }
 

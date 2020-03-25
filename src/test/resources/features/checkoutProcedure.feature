@@ -1,5 +1,5 @@
 Feature: User can checkout
-@Testss
+
   Scenario: User checkouts as a Guest User
     Given a User adds a product to cart
     When User selects Guest Radio Button
@@ -18,12 +18,10 @@ Feature: User can checkout
     And selects "Slaskie" from Region Field
     And User clicks on Continue Button
     When User clicks on Delivery Details
-    Then Step2 Billing Details bar has correct Text
-    And Delivery Method statement has correct Text
+    Then Delivery Method statement has correct Text
     When User clicks on Continue Button after Delivery Details
     And types " This is a test comment in the Order Comments"
     And clicks on Continue Button after Delivery Method
-    Then Text in the Payment area is " This is a test comment in the Order Comments"
     When user user agrees to Terms & Conditions
     And clicks on Continue Button after Payment Method
     Then user sees correct order summary

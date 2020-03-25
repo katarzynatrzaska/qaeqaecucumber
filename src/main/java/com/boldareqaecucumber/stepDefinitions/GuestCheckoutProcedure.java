@@ -7,7 +7,6 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-import static org.testng.AssertJUnit.assertTrue;
 
 public class GuestCheckoutProcedure extends TestBase {
 
@@ -23,7 +22,6 @@ public class GuestCheckoutProcedure extends TestBase {
     public void userSelectsGuestRadioButton() {
         checkout.selectGuestRadioButton();
     }
-
 
     @Then("^Step Billing Details bar has correct Text$")
     public void checkIfBillingDetailsHasCorrectText() {
@@ -65,7 +63,6 @@ public class GuestCheckoutProcedure extends TestBase {
         checkout.typeIntoAddress1Field(address1);
     }
 
-
     @When("^types \"([^\"]*)\" in Address second line Field$")
     public void fillInAddress2(String address2) {
         checkout.typeIntoAddress2Field(address2);
@@ -84,65 +81,58 @@ public class GuestCheckoutProcedure extends TestBase {
     @When("^selects \"([^\"]*)\" from Country Field$")
     public void selectCountry(String country) {
         checkout.selectValueFromCountryDropdown(country);
-
- /*   }
+    }
 
     @When("^selects \"([^\"]*)\" from Region Field$")
-    public void selects_from_Region_Field(String arg1) throws Throwable {
-
+    public void selectRegion(String region) {
+        checkout.selectValueFromRegionDropdown(region);
     }
 
     @When("^User clicks on Continue Button$")
-    public void user_clicks_on_Continue_Button() throws Throwable {
-
+    public void clickOnContinueButton() {
+        checkout.clickContinueButtonInBillingInfo();
     }
 
     @When("^User clicks on Delivery Details$")
-    public void user_clicks_on_Delivery_Details() throws Throwable {
-
+    public void clickOnDeliveryDetails() {
+        checkout.clickOnDeliveryDetails();
     }
 
     @Then("^Delivery Method statement has correct Text$")
-    public void delivery_Method_statement_has_correct_Text() throws Throwable {
-
+    public void assertThatDeliveryMethodStatementIsCorrect() {
+        checkout.assertThatDeliveryMethodHasStatement();
     }
 
     @When("^User clicks on Continue Button after Delivery Details$")
-    public void user_clicks_on_Continue_Button_after_Delivery_Details() throws Throwable {
-
+    public void clickOnContinueButtonAfterDeliveryDetails() {
+        checkout.clickOnContinueButtonAfterDeliveryDetails();
     }
 
     @When("^types \"([^\"]*)\"$")
-    public void types(String arg1) throws Throwable {
-
+    public void userTypesDeliveryMethodComment(String deliveryMethodComment) {
+        checkout.typeIntoDeliveryMethodCommentInput(deliveryMethodComment);
     }
 
     @When("^clicks on Continue Button after Delivery Method$")
-    public void clicks_on_Continue_Button_after_Delivery_Method() throws Throwable {
-
-    }
-
-    @Then("^Text in the Payment area is \"([^\"]*)\"$")
-    public void text_in_the_Payment_area_is(String arg1) throws Throwable {
-
+    public void clickContinueButtonAfterDeliveryMethod() {
+        checkout.clickOnContinueButtonAfterDeliveryMethod();
     }
 
     @When("^user user agrees to Terms & Conditions$")
-    public void user_user_agrees_to_Terms_Conditions() throws Throwable {
-
+    public void checkTermsAndConditions() {
+        checkout.agreeToTermsAndConditions();
     }
 
     @When("^clicks on Continue Button after Payment Method$")
-    public void clicks_on_Continue_Button_after_Payment_Method() throws Throwable {
-
+    public void clickOnContinueButtonAfterPaymentMethod() {
+        checkout.clickOnContinueButtonAfterPaymentMethod();
     }
 
     @Then("^user sees correct order summary$")
-    public void user_sees_correct_order_summary() throws Throwable {
+    public void assertSummary() {
+        checkout.assertThatSummaryHasCorrectDetails();
 
     }
 
 }
-        */
-    }
-}
+
