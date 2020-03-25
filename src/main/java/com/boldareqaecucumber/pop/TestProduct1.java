@@ -23,13 +23,13 @@ public class TestProduct1 extends BasePage {
     private WebElement addToCartButton;
 
     @FindBy(linkText = "Test product 1")
-    public WebElement product1link;
+    private WebElement product1link;
 
     @FindBy(xpath = "/html/body/header/div/div/div[3]/div/button")
-    public WebElement cartButton;
+    private WebElement cartButton;
 
     @FindBy(xpath = "//*[@id='cart']/ul/li[2]/div/p/a[2]")
-    public WebElement checkOutButton;
+    private WebElement checkOutButton;
 
 
     public TestProduct1(WebDriver driver) {
@@ -45,6 +45,14 @@ public class TestProduct1 extends BasePage {
 
     public void clickOnAddCartButton() {
         element.click(addToCartButton);
+    }
+
+    public void clickOnCartButton() {
+        element.click(cartButton);
+    }
+
+    public void clickOnCheckoutButton() {
+        element.click(checkOutButton);
     }
 
     public boolean isSuccessMessageDisplayed() {

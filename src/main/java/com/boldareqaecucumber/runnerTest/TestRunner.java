@@ -17,7 +17,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 		plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json",
 				"junit:target/cucumber-reports/Cucumber.xml",
 				"html:target/cucumber-reports"},
-		tags = {},
+		tags = {"@Testss"},
 		monochrome = true
 )
 public class TestRunner {
